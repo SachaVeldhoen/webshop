@@ -43,7 +43,7 @@
                         <a href="/products"
                            class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Products</a>
 
-                        <a href="#"
+                        <a href="/upload-product"
                            class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Upload</a>
                     </div>
                 </div>

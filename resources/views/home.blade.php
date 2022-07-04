@@ -16,5 +16,21 @@
 <livewire:header />
 <h1 class="">home page</h1>
 <a href="/products">Bekijk producten</a>
+
+<form wire:submit.prevent="submitProduct">
+    <input  class="uk-input uk-margin uk-margin-medium-top" type="text" wire:model="name" placeholder="Name">
+    @error('name') <span class="error">{{ $message }}</span> @enderror
+
+    <input  class="uk-input uk-margin" type="text" wire:model="description" placeholder="Description">
+    @error('description') <span class="error">{{ $message }}</span> @enderror
+
+    <input  class="uk-input uk-margin" type="text" wire:model="price" placeholder="Price">
+    @error('price') <span class="error">{{ $message }}</span> @enderror
+
+    <input  class="uk-input uk-margin" type="text" wire:model="stock" placeholder="Stock">
+    @error('stock') <span class="error">{{ $message }}</span> @enderror
+
+    <button class="uk-button uk-button-primary" type="submit">Upload product</button>
+</form>
 </body>
 </html>

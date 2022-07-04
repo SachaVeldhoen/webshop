@@ -22,6 +22,8 @@ Route::post('/products', [\App\Http\Controllers\CartController::class, 'store'])
 Route::get('/', [\App\Http\Controllers\HomeController::class, 'index']);
 
 
+Route::resource('/upload-product', \App\Http\Controllers\ProductController::class);
+
 
 // Mollie
 Route::get('mollie-payment',[MollieController::Class,'preparePayment'])->name('mollie.payment');
