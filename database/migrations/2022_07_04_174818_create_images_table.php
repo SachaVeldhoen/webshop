@@ -1,22 +1,18 @@
 <?php
 
+use App\Models\Product;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateProductGalleriesTable extends Migration
+class CreateImagesTable extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
     public function up()
     {
-        Schema::create('product_galleries', function (Blueprint $table) {
+        Schema::create('images', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('product_id');
-            $table->text('filename')->nullable();
+            $table->foreignIdFor(Product::class);
+            $table->string('image');
             $table->timestamps();
         });
     }
@@ -28,6 +24,6 @@ class CreateProductGalleriesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('product_galleries');
+        Schema::dropIfExists('images');
     }
 }

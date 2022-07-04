@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -10,6 +11,9 @@ class HomeController extends Controller
 
     public function index()
     {
-        return view('home');
+        $cart_count = Cart::content()->count();
+        $cart_price = Cart::total();
+
+        return view('home', compact(array('cart_count', 'cart_price')));
     }
 }
