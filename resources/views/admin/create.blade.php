@@ -11,6 +11,13 @@
     <link rel="stylesheet" href="/scss/webshop.css">
     <script src="https://cdn.jsdelivr.net/npm/uikit@3.14.3/dist/js/uikit.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/uikit@3.14.3/dist/js/uikit-icons.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.14.3/dist/css/uikit.min.css"/>
+    <link rel="stylesheet" href="/scss/webshop.css">
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.14.3/dist/js/uikit.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.14.3/dist/js/uikit-icons.min.js"></script>
+
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet" />
 </head>
 <body>
 <livewire:header/>
@@ -46,6 +53,15 @@
                     @enderror
                 </span>
 
+            </div>
+            <div class="form-group">
+                <label for="file" class="form-label mt-4">Upload Product Thumbnail:</label>
+                <input
+                    type="file"
+                    name="thumbnail"
+                    class="form-control"
+                    accept="image/*"
+                >
             </div>
             <div class="form-group">
                 <label for="files" class="form-label mt-4">Upload Product Images:</label>

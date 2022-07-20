@@ -8,8 +8,8 @@ use Illuminate\Http\Request;
 
 class CartController extends Controller
 {
-    public function store(Request $request)
-    {
+//    public function store(Request $request)
+//    {
 //        $product = Product::findOrFail($request->input('product_id'));
 //        Cart::add(
 //            $product->id,
@@ -19,5 +19,5 @@ class CartController extends Controller
 //        );
 //
 //        return redirect()->route('products.index')->with('message', 'Successfully added');
-    }
+//    }
 }

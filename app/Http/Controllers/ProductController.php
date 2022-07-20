@@ -8,20 +8,56 @@ use Illuminate\Http\Request;
 
 class ProductController extends Controller
 {
+    public $products;
+    public array $quantity = [];
+
+    public function mount()
+    {
+        $this->products = Product::all();
+        foreach ($this->products as $product) {
+            $this->quantity[$product->id] = 1;
+        }
+    }
     public function index(){
         $products = Product::all();
         return view('products.index',compact('products'));
     }
+    public function allProducts(){
+        $products = Product::all();
+        return view('products.all',compact('products'));
+    }
     public function store(Request $req){
+        $file = $req->file('thumbnail');
+        $filename = $file->getClientOriginalName(); // getting image extension
+        $path = public_path('/uploads/');
+
+
+        if (!file_exists($path . '' . $filename)) {
+            $file->move($path, $filename);
+        }
+
         $data = $req->validate([
             'name'=>'required',
-            'price'=>'required'
+            'price'=>'required',
         ]);
-        $new_product = Product::create($data);
+
+
+        $thumbName = $data['name'].'-image-'.time().rand(1,1000).'.'.$file->extension();
+        $file->move(public_path('product_images'),$thumbName);
+
+        $new_product = Product::create([
+            "name" => $req->name,
+            "price" => $req->price,
+            "thumbnail" => $thumbName,
+        ]);
+//        $new_product->thumbnail = $imageName;
+
+
         if($req->has('images')){
             foreach($req->file('images')as $image){
                 $imageName = $data['name'].'-image-'.time().rand(1,1000).'.'.$image->extension();
                 $image->move(public_path('product_images'),$imageName);
+
                 Image::create([
                     'product_id'=>$new_product->id,
                     'image'=>$imageName

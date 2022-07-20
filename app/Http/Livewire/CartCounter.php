@@ -3,6 +3,7 @@
 namespace App\Http\Livewire;
 
 use Gloudemans\Shoppingcart\Facades\Cart;
+use Illuminate\Support\Facades\Session;
 use Livewire\Component;
 
 class CartCounter extends Component

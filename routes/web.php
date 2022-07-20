@@ -17,7 +17,10 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/products', [\App\Http\Controllers\ProductController::class, 'index'])
     ->name('products.index');
-Route::post('/products', [\App\Http\Controllers\CartController::class, 'store'])
+
+Route::get('/producten', [\App\Http\Controllers\ProductController::class, 'allProducts'])
+        ->name('products.all');
+Route::post('/producten', [\App\Http\Controllers\CartController::class, 'store'])
     ->name('cart.store');
 
 Route::get('/', [\App\Http\Controllers\HomeController::class, 'index']);
@@ -27,7 +30,6 @@ Route::get('/admin/upload-product', function () {
 });
 
 
-//Route::get('/', [ProductController::class,'index']);
 Route::post('/add-product',[ProductController::class,'store']);
 Route::get('/product-images/{id}',[ProductController::class,'images'])->name('product.images');
 

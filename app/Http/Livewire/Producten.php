@@ -6,7 +6,7 @@ use App\Models\Product;
 use Gloudemans\Shoppingcart\Facades\Cart;
 use Livewire\Component;
 
-class ProductsTable extends Component
+class Producten extends Component
 {
     public $products;
     public array $quantity = [];
@@ -23,15 +23,13 @@ class ProductsTable extends Component
     {
         $cart = Cart::content();
 
-        return view('livewire.products-table',
+        return view('livewire.producten',
             compact('cart'));
     }
 
     public function addToCart($product_id)
     {
         $product = Product::findOrFail($product_id);
-
-
         Cart::add(
             $product->id,
             $product->name,
