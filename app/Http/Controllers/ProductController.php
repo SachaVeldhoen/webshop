@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Image;
 use App\Models\Product;
+use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
@@ -71,6 +72,21 @@ class ProductController extends Controller
         $product = Product::find($id);
         if(!$product) abort(404);
         $images = $product->images;
-        return view('images',compact('product','images'));
+        return view('products.index',compact('product','images'));
+    }
+
+    public function addToCart($product_id)
+    {
+        $product = Product::findOrFail($product_id);
+
+
+        Cart::add(
+            $product->id,
+            $product->name,
+            $this->quantity[$product_id],
+            $product->price / 100,
+        );
+
+        $this->emit('cart_updated');
     }
 }

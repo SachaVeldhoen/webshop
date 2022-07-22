@@ -1,5 +1,5 @@
 @extends('layouts.app')
 
 @section('content')
-    @livewire('products-table')
+    @livewire('images', ['product' => $product, 'images' => $images])
 @endsection

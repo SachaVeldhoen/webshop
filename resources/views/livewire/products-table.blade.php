@@ -19,7 +19,7 @@
 {{--                @if ($cart->where('id', $product->id)->count())--}}
 {{--                    In cart--}}
 {{--                @else--}}
-                    <form wire:submit.prevent="addToCart({{ $product->id }})" action="{{ route('cart.store') }}" method="POST">
+                    <form wire:submit.prevent="addToCart({{ $product->id }})" method="POST">
                         @csrf
                         <input wire:model="quantity.{{ $product->id }}" min="1" max="9" type="number"
                                class="text-sm sm:text-base px-2 pr-2 rounded-lg border border-gray-400 py-1 focus:outline-none focus:border-blue-400"

@@ -1,14 +1,55 @@
 body {
   min-height: 100vh;
 }
+body .websitewrapper {
+  margin-top: 50px;
+}
 
-.header .uk-container {
+.uk-navbar-container {
   display: flex;
-  background-color: red;
   position: fixed;
   top: 0;
   width: 100%;
   height: 50px;
+  background-color: white !important;
+}
+.uk-navbar-container .uk-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+.uk-navbar-container .uk-container .logo-side {
+  display: flex;
+}
+.uk-navbar-container .uk-container .logo-side p {
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+.uk-navbar-container .uk-container .logo-side img {
+  margin-left: 3px;
+  max-width: 18px;
+}
+.uk-navbar-container .uk-container .linking-side ul {
+  display: flex;
+}
+.uk-navbar-container .uk-container .linking-side ul li a {
+  padding: 10px 20px;
+}
+.uk-navbar-container .uk-container .data-side {
+  display: flex;
+}
+.uk-navbar-container .uk-container .data-side a {
+  padding: 10px 15px;
+  position: relative;
+}
+.uk-navbar-container .uk-container .data-side a span {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+.uk-navbar-container .uk-container .data-side a img {
+  max-width: 20px;
 }
 
 /*# sourceMappingURL=webshop.css.map */

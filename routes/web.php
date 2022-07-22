@@ -23,18 +23,19 @@ Route::get('/producten', [\App\Http\Controllers\ProductController::class, 'allPr
 Route::post('/producten', [\App\Http\Controllers\CartController::class, 'store'])
     ->name('cart.store');
 
-Route::get('/', [\App\Http\Controllers\HomeController::class, 'index']);
-
-Route::get('/admin/upload-product', function () {
-    return view('admin.create');
-});
+Route::get('/cart', [\App\Http\Controllers\CartController::class, 'index'])
+    ->name('cart.index');
 
 
 Route::post('/add-product',[ProductController::class,'store']);
 Route::get('/product-images/{id}',[ProductController::class,'images'])->name('product.images');
 
 
-//Route::resource('/upload-product', \App\Http\Controllers\ProductController::class);
+Route::get('/', [\App\Http\Controllers\HomeController::class, 'index']);
+
+Route::get('/admin/upload-product', function () {
+    return view('admin.create');
+});
 
 
 // Mollie
