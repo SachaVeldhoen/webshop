@@ -11,12 +11,11 @@ class Images extends Component
 {
     public $product;
     public $images;
-    public array $quantity = [];
+    public $quantity = [];
 
     public function render()
     {
         $cart = Cart::content();
-
         return view('livewire.images',
             compact('cart' ));
     }
@@ -33,12 +32,14 @@ class Images extends Component
         $product = Product::findOrFail($product_id);
 
 
-        Cart::add(
-            $product->id,
-            $product->name,
-            $this->quantity[$product_id],
-            $product->price / 100,
-        );
+        Cart::add([
+            'id' => $product->id,
+            'name' => $product->name,
+            'qty' => $this->quantity[$product_id],
+            'price' => $product->price / 100,
+            'weight' => 2,
+            'options' => ['thumbnail' => $product->thumbnail]
+        ]);
 
         $this->emit('cart_updated');
     }

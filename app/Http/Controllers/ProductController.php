@@ -6,6 +6,7 @@ use App\Models\Image;
 use App\Models\Product;
 use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ProductController extends Controller
 {
@@ -26,6 +27,20 @@ class ProductController extends Controller
     public function allProducts(){
         $products = Product::all();
         return view('products.all',compact('products'));
+    }
+
+    // admin only function
+    public function uploadProduct() {
+        $user = Auth::user();
+        if ($user) {
+            if ($user->isAdmin == 1) {
+                return view('admin.create');
+            } else {
+                return view('no-acces');
+            }
+        } else {
+            return view('no-acces');
+        }
     }
     public function store(Request $req){
         $file = $req->file('thumbnail');
@@ -50,6 +65,7 @@ class ProductController extends Controller
             "name" => $req->name,
             "price" => $req->price,
             "thumbnail" => $thumbName,
+            "tag_id" => $req->tag_id,
         ]);
 //        $new_product->thumbnail = $imageName;
 
@@ -85,6 +101,7 @@ class ProductController extends Controller
             $product->name,
             $this->quantity[$product_id],
             $product->price / 100,
+            $product->thumbnail,
         );
 
         $this->emit('cart_updated');

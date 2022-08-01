@@ -15,27 +15,31 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/products', [\App\Http\Controllers\ProductController::class, 'index'])
-    ->name('products.index');
-
+// producten
 Route::get('/producten', [\App\Http\Controllers\ProductController::class, 'allProducts'])
         ->name('products.all');
 Route::post('/producten', [\App\Http\Controllers\CartController::class, 'store'])
     ->name('cart.store');
+Route::get('/admin/upload-product', [ProductController::class,'uploadProduct']);
+Route::get('/product-images/{id}',[ProductController::class,'images'])
+    ->name('product.images');
+Route::post('/add-product',[ProductController::class,'store']);
 
+// cart
 Route::get('/cart', [\App\Http\Controllers\CartController::class, 'index'])
     ->name('cart.index');
+Route::post('/cart', [\App\Http\Controllers\CartController::class, 'doRemove'])
+    ->name('cart.index');
+
+// login / register
 
 
-Route::post('/add-product',[ProductController::class,'store']);
-Route::get('/product-images/{id}',[ProductController::class,'images'])->name('product.images');
-
-
-Route::get('/', [\App\Http\Controllers\HomeController::class, 'index']);
-
-Route::get('/admin/upload-product', function () {
-    return view('admin.create');
+Route::group(['middleware' => 'auth'], function () {
+    Route::get('/account', [\App\Http\Controllers\HomeController::class, 'account']);
 });
+
+// home
+Route::get('/', [\App\Http\Controllers\HomeController::class, 'index']);
 
 
 // Mollie
@@ -45,3 +49,7 @@ Route::name('webhooksMollie')->post('webhooks/mollie', 'MollieWebhookController@
 Route::get('/failed', function () {
     return view('failed', ['name' => 'James']);
 });
+
+Auth::routes();
+
+//Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

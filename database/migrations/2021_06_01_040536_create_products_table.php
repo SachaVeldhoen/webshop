@@ -14,6 +14,7 @@ class CreateProductsTable extends Migration
             $table->string('description')->nullable();
             $table->decimal('price',8,2);
             $table->string('thumbnail')->nullable();
+            $table->string('tag_id')->nullable();
             $table->timestamps();
         });
     }

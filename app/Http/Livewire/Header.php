@@ -11,7 +11,7 @@ class Header extends Component
     public function render()
     {
 
-        $cart_count = Cart::content()->count();
+        $cart_count = Cart::count();
         $cart_price = Cart::total();
 
         return view('livewire.header', compact(array('cart_count', 'cart_price')));

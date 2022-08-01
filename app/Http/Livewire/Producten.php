@@ -35,6 +35,7 @@ class Producten extends Component
             $product->name,
             $this->quantity[$product_id],
             $product->price / 100,
+               $product->thumbnail,
         );
 
         $this->emit('cart_updated');

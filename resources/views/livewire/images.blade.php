@@ -1,15 +1,13 @@
-<div>
+<div class="single-item">
     <h1>{{$product->name}}</h1>
-    <h2>   ${{ number_format($product->price / 100, 2) }}</h2>
-
-    @foreach ($images as $image)
-        <div class="col-md-3">
-            <div class="card text-white bg-secondary mb-3" style="max-width: 20rem;">
-                <div class="card-body">
-                    <img src="/product_images/{{$image->image}}" class="card-img-top">
-                </div>
-            </div>
-        </div>
+    <h2> ${{ number_format($product->price / 100, 2) }}</h2>
+    <div class="images-grid">
+        @foreach ($images as $image)
+            <img src="/product_images/{{$image->image}}" class="card-img-top">
+        @endforeach
+    </div>
+    @foreach ($product->tags as $tag)
+       <p class="uk-label">{{$tag->name}}</p>
     @endforeach
     <form wire:submit.prevent="addToCart({{$product->id}})" action="{{ route('cart.store') }}" method="POST">
         @csrf

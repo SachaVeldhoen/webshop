@@ -16,4 +16,8 @@ class HomeController extends Controller
 
         return view('home', compact(array('cart_count', 'cart_price')));
     }
+
+    public function account() {
+        return view('account.dashboard');
+    }
 }
