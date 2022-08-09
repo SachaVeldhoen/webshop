@@ -1,7 +1,7 @@
-<nav class="uk-navbar-container">
+<nav class="uk-navbar-container" id="navbar">
     <div class="uk-container">
         <div class="logo-side">
-            <a href="/"> <p>Loyale</p> <img src="/svg/perfume.svg" alt="perfume logo"></a>
+            <a href="/"> <img id="navbarLogo" src="/svg/logo-svg.svg" alt="perfume logo"></a>
         </div>
         <div class="linking-side">
             <ul>
@@ -23,4 +23,18 @@
         </div>
     </div>
 </nav>
-{{--({{ $cart_count ?? '' }}) ${{ $cart_price ?? '' }}--}}
+
+<script>
+    const navigationBar = document.getElementById('navbar');
+    const navigationBarLogo = document.getElementById('navbarLogo');
+    window.addEventListener('scroll', () => {
+        if (scrollY > 20) {
+            navigationBar.style.height = "50px";
+            navigationBarLogo.style.maxWidth = "90px";
+        } else {
+            navigationBar.style.height = "70px";
+            navigationBarLogo.style.maxWidth = "110px";
+        }
+    })
+
+</script>

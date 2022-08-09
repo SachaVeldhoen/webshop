@@ -17,3 +17,9 @@ https://assets.materialup.com/uploads/c6aac4d5-5005-48b0-b799-4a63f06a139b/previ
 
 -- header & algemene desing
 https://www.kenzo.com/eu/en/home
+
+-- quiz idee vragen
+antwoorden: zakelijk, fruity, 
+
+-- all scents
+https://mycustomscent.com/list-of-scents/

@@ -2,7 +2,7 @@ body {
   min-height: 100vh;
 }
 body .websitewrapper {
-  margin-top: 50px;
+  margin-top: 100px;
 }
 
 .uk-navbar-container {
@@ -10,8 +10,9 @@ body .websitewrapper {
   position: fixed;
   top: 0;
   width: 100%;
-  height: 50px;
+  height: 70px;
   background-color: white !important;
+  transition: 0.3s;
 }
 .uk-navbar-container .uk-container {
   display: flex;
@@ -30,8 +31,8 @@ body .websitewrapper {
   letter-spacing: 2px;
 }
 .uk-navbar-container .uk-container .logo-side a img {
-  margin-left: 3px;
-  max-width: 18px;
+  transition: 0.3s;
+  max-width: 110px;
 }
 .uk-navbar-container .uk-container .linking-side ul {
   display: flex;
@@ -142,6 +143,102 @@ body .websitewrapper {
 .single-item .images-grid img {
   height: 100%;
   object-fit: cover;
+}
+
+.login-page {
+  display: grid;
+  grid-template-columns: 60% 1fr;
+}
+.login-page .login-side .login-form {
+  width: 50%;
+  margin: auto;
+}
+.login-page .login-side .login-form form input {
+  width: 100%;
+}
+.login-page .login-side .login-form form .form-check {
+  display: flex;
+  margin-top: 15px;
+}
+.login-page .login-side .login-form form .form-check #remember {
+  max-width: 11px;
+}
+.login-page .login-side .login-form form .form-check label {
+  color: rgba(51, 51, 51, 0.7);
+  margin-left: 10px;
+}
+.login-page .login-side .login-form form .login-button {
+  margin-top: 25px;
+  margin-bottom: 20px;
+}
+.login-page .login-side .login-form form .login-button button {
+  background-color: #e9c67d;
+  border-radius: 10px 10px 15px 2px;
+  color: white;
+  padding: 5px 20px;
+  width: 100%;
+  font-weight: 400;
+  font-size: 20px;
+}
+.login-page .login-side .login-form form .forgot-link {
+  opacity: 0.7;
+}
+
+.form__group {
+  position: relative;
+  padding: 15px 0 0;
+  margin-top: 10px;
+}
+
+.form__field {
+  font-family: inherit;
+  width: 100%;
+  border: 0;
+  border-bottom: 1px solid rgba(155, 155, 155, 0.55);
+  outline: 0;
+  font-size: 1.3rem;
+  color: #333333;
+  padding: 7px 0;
+  background: transparent;
+  transition: border-color 0.2s;
+}
+.form__field::placeholder {
+  color: transparent;
+}
+.form__field:placeholder-shown ~ .form__label {
+  font-size: 1.3rem;
+  cursor: text;
+  top: 20px;
+}
+
+.form__label {
+  position: absolute;
+  top: 0;
+  display: block;
+  transition: 0.2s;
+  font-size: 1rem;
+  color: #9b9b9b;
+}
+
+.form__field:focus {
+  padding-bottom: 6px;
+  border-width: 1px;
+  border-image: linear-gradient(to right, #111f30, #3b3f41);
+  border-image-slice: 1;
+}
+.form__field:focus ~ .form__label {
+  position: absolute;
+  top: 0;
+  display: block;
+  transition: 0.2s;
+  font-size: 1rem;
+  color: #333333;
+  opacity: 0.7;
+}
+
+/* reset input */
+.form__field:required, .form__field:invalid {
+  box-shadow: none;
 }
 
 /*# sourceMappingURL=webshop.css.map */
