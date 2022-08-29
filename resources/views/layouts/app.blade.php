@@ -4,6 +4,14 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
+{{--    fonts--}}
+    <link href="https://fonts.cdnfonts.com/css/sofia-pro" rel="stylesheet">
+    <link href="http://fonts.cdnfonts.com/css/avenir" rel="stylesheet">
+
+{{--    swiper--}}
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css"/>
+    <script src="js/shop.js"></script>
+
     <title>Add to Cart</title>
     @livewireStyles
 </head>
@@ -20,7 +28,7 @@
 
 @livewire('header')
 
-<div class="font-sans text-gray-900 antialiased uk-container websitewrapper">
+<div class="font-sans text-gray-900 antialiased websitewrapper">
     @yield('content')
 </div>
 

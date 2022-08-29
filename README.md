@@ -19,7 +19,12 @@ https://assets.materialup.com/uploads/c6aac4d5-5005-48b0-b799-4a63f06a139b/previ
 https://www.kenzo.com/eu/en/home
 
 -- quiz idee vragen
-antwoorden: zakelijk, fruity, 
+antwoorden: zakelijk, fruity, Aquatic
+
+-- nieuw webdesign inspiratie
+https://www.behance.net/gallery/96333531/Landing-Page-UIUX-Design
+
+
 
 -- all scents
 https://mycustomscent.com/list-of-scents/

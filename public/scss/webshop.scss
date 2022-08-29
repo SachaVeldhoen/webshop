@@ -1,9 +1,16 @@
-$blue: #111f30;
+$blue: #071332;
 $gold: #e9c67d;
+
+//fonts
+$sofia: 'Sofia Pro', sans-serif;
+$avenir: 'Avenir', sans-serif;
 
 body {
     min-height: 100vh;
 
+    p, h1, h2, h3, h4, h5, h6, a, b, span, button {
+        font-family: $sofia;
+    }
     .websitewrapper {
         margin-top: 100px;
     }
@@ -48,6 +55,9 @@ body {
         }
 
         .linking-side {
+            @media (max-width: 800px) {
+                display: none;
+            }
             ul {
                 display: flex;
 
@@ -301,5 +311,203 @@ $secondary: #3b3f41;
 .form__field {
     &:required, &:invalid {
         box-shadow: none;
+    }
+}
+
+
+.mobile-swiper {
+    .swiper {
+        height: 550px;
+        .mobile-swiper-slide {
+            height: fit-content;
+            background-color: #FFF;
+            border-radius: 10px;
+            position: relative;
+            //transform: scale(.8);
+            .product-image {
+                object-fit: cover;
+                height: 320px;
+                border-top-right-radius: 10px;
+                border-top-left-radius: 10px;
+                box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+            }
+            .product-info {
+                position: relative;
+                padding: 10px 20px;
+                margin-top: -15px;
+                transition: .5s;
+                .product-price {
+                    color: #e9c67d;
+                    margin-top: 10px;
+                }
+                .product-tags {
+                    opacity: 0;
+                    font-size: 16px;
+                }
+                .product-check {
+                    position: absolute;
+                    height: 35px;
+                    width: 35px;
+                    right: 15px;
+                    bottom: 15px;
+                    opacity: 0;
+                    transition-delay: .5s;
+                    transition: .5s;
+                    svg {
+                        fill: $gold;
+                    }
+                }
+                p {
+                    font-size: 20px;
+                    color: #2f2f2f;
+                    transition: .5s;
+                    transform: translateY(-20px);
+                    transition-delay: .2s;
+                    opacity: 0;
+                }
+                h4 {
+                    font-family: $avenir;
+                    color: #222222;
+                    font-size: 24px;
+                    font-weight: 700;
+                    opacity: 0;
+                    transition: .5s;
+                    transform: translateY(-20px);
+                }
+            }
+        }
+        .swiper-slide-active {
+            h4, p, .product-check {
+                transform: none !important;
+                opacity: 1 !important;
+            }
+            .product-info {
+                margin: 0 !important;
+            }
+            .product-tags {
+                opacity: .7 !important;
+            }
+        }
+    }
+}
+
+.desktop-swiper {
+    margin-bottom: 100px;
+    display: grid;
+    grid-template-columns: 1fr 55%;
+    min-height: 500px;
+    position: relative;
+    background-color:hsla(228,53%,23%,1);
+    background-image:
+        radial-gradient(at 40% 20%, hsla(228,55%,21%,1) 0px, transparent 50%),
+        radial-gradient(at 80% 0%, hsla(228,58%,12%,1) 0px, transparent 50%),
+        radial-gradient(at 0% 50%, hsla(228,61%,19%,1) 0px, transparent 50%),
+        radial-gradient(at 80% 50%, hsla(228,58%,12%,1) 0px, transparent 50%),
+        radial-gradient(at 0% 100%, hsla(228,58%,12%,1) 0px, transparent 50%),
+        radial-gradient(at 80% 100%, hsla(228,63%,19%,1) 0px, transparent 50%),
+        radial-gradient(at 0% 0%, hsla(228,63%,23%,1) 0px, transparent 50%);
+
+    .featured-image {
+        img {
+            min-height: 550px;
+            object-fit: cover;
+            max-height: 550px;
+            min-width: 100%;
+        }
+    }
+    .featured-bio {
+        padding: 40px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        max-width: 700px;
+        .product-bio {
+            margin-bottom: 30px;
+        }
+        .images-buttons {
+            z-index: 99;
+            display: flex;
+            position: relative;
+            margin-bottom: 20px;
+                .progress-bkg {
+                    height: 2px;
+                    background-color: #fff;
+                    opacity: .2;
+                    position: absolute;
+                    width: 90px;
+                    left: 45px;
+                    bottom: 15px;
+                    border-radius: 2px;
+                }
+                .progress-line {
+                    transition: .2s;
+                    opacity: 1;
+                    border-radius: 2px;
+                    height: 2px;
+                    background-color: #fff;
+                    position: absolute;
+                    width: 35px;
+                    left: 45px;
+                    bottom: 15px;
+                }
+            button {
+                color: white;
+                svg {
+                    width: 32px;
+                }
+            }
+            #image-prev {
+                transform: scaleX(-1);
+            }
+        }
+        .images-thumb {
+            overflow: hidden;
+            height: 130px;
+            max-width: 550px;
+            transition: .5s;
+            display: flex;
+            gap: 20px;
+            .single-image {
+                transition: .5s;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                img {
+                    max-width: 170px;
+                }
+            }
+        }
+        .images-thumb-line {
+            max-width: 550px;
+            transition: .5s;
+            display: flex;
+            gap: 20px;
+            justify-content: space-around;
+            > div {
+                width: 170px;
+                span {
+                    display: block;
+                    margin-top: 10px;
+                    position: relative;
+                    background-color: white;
+                    width: 15px;
+                    height: 2px;
+                    transition: .4s ease;
+                }
+            }
+
+        }
+        h3 {
+            font-size: 45px;
+            font-weight: 700;
+            color: white;
+            font-family: $avenir;
+            line-height: 45px;
+            margin-bottom: 15px;
+        }
+        p {
+            color: rgba(255, 255, 255, 0.75);
+        }
     }
 }

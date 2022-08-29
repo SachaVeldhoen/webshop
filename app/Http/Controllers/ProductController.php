@@ -28,6 +28,10 @@ class ProductController extends Controller
         $products = Product::all();
         return view('products.all',compact('products'));
     }
+    public function productSwiper(){
+        $products = Product::all();
+        return view('home',compact('products'));
+    }
 
     // admin only function
     public function uploadProduct() {

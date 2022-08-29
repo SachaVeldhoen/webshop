@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\OrderMail;
 use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Session;
 use Mollie\Laravel\Facades\Mollie;
 
@@ -60,6 +62,8 @@ class MollieController extends Controller
         $mollie = new \Mollie\Api\MollieApiClient();
         $mollie->setApiKey("test_n9qDRy8tn4JD9Sgjxw23y8CQvvBmUA");
         $payment = $mollie->payments->get($payments->id);
+
+        Mail::to('fake@mail.com')->send(new OrderMail());
 
         if ($payment->isPaid() && ! $payment->hasRefunds() && ! $payment->hasChargebacks()) {
 

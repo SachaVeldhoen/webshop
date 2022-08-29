@@ -1,6 +1,9 @@
 body {
   min-height: 100vh;
 }
+body p, body h1, body h2, body h3, body h4, body h5, body h6, body a, body b, body span, body button {
+  font-family: "Sofia Pro", sans-serif;
+}
 body .websitewrapper {
   margin-top: 100px;
 }
@@ -33,6 +36,11 @@ body .websitewrapper {
 .uk-navbar-container .uk-container .logo-side a img {
   transition: 0.3s;
   max-width: 110px;
+}
+@media (max-width: 800px) {
+  .uk-navbar-container .uk-container .linking-side {
+    display: none;
+  }
 }
 .uk-navbar-container .uk-container .linking-side ul {
   display: flex;
@@ -98,7 +106,7 @@ body .websitewrapper {
   border-radius: 8px;
 }
 .shopping-cart .cart .cart-payment {
-  background-color: #111f30;
+  background-color: #071332;
   padding: 30px 30px 0;
   height: fit-content;
   border-radius: 15px;
@@ -110,7 +118,7 @@ body .websitewrapper {
   background-color: #e9c67d;
   padding: 15px 5px;
   border-radius: 7px;
-  color: #111f30;
+  color: #071332;
   text-align: center;
   font-weight: 500;
   transform: translateY(20px);
@@ -223,7 +231,7 @@ body .websitewrapper {
 .form__field:focus {
   padding-bottom: 6px;
   border-width: 1px;
-  border-image: linear-gradient(to right, #111f30, #3b3f41);
+  border-image: linear-gradient(to right, #071332, #3b3f41);
   border-image-slice: 1;
 }
 .form__field:focus ~ .form__label {
@@ -239,6 +247,186 @@ body .websitewrapper {
 /* reset input */
 .form__field:required, .form__field:invalid {
   box-shadow: none;
+}
+
+.mobile-swiper .swiper {
+  height: 550px;
+}
+.mobile-swiper .swiper .mobile-swiper-slide {
+  height: fit-content;
+  background-color: #FFF;
+  border-radius: 10px;
+  position: relative;
+}
+.mobile-swiper .swiper .mobile-swiper-slide .product-image {
+  object-fit: cover;
+  height: 320px;
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+.mobile-swiper .swiper .mobile-swiper-slide .product-info {
+  position: relative;
+  padding: 10px 20px;
+  margin-top: -15px;
+  transition: 0.5s;
+}
+.mobile-swiper .swiper .mobile-swiper-slide .product-info .product-price {
+  color: #e9c67d;
+  margin-top: 10px;
+}
+.mobile-swiper .swiper .mobile-swiper-slide .product-info .product-tags {
+  opacity: 0;
+  font-size: 16px;
+}
+.mobile-swiper .swiper .mobile-swiper-slide .product-info .product-check {
+  position: absolute;
+  height: 35px;
+  width: 35px;
+  right: 15px;
+  bottom: 15px;
+  opacity: 0;
+  transition-delay: 0.5s;
+  transition: 0.5s;
+}
+.mobile-swiper .swiper .mobile-swiper-slide .product-info .product-check svg {
+  fill: #e9c67d;
+}
+.mobile-swiper .swiper .mobile-swiper-slide .product-info p {
+  font-size: 20px;
+  color: #2f2f2f;
+  transition: 0.5s;
+  transform: translateY(-20px);
+  transition-delay: 0.2s;
+  opacity: 0;
+}
+.mobile-swiper .swiper .mobile-swiper-slide .product-info h4 {
+  font-family: "Avenir", sans-serif;
+  color: #222222;
+  font-size: 24px;
+  font-weight: 700;
+  opacity: 0;
+  transition: 0.5s;
+  transform: translateY(-20px);
+}
+.mobile-swiper .swiper .swiper-slide-active h4, .mobile-swiper .swiper .swiper-slide-active p, .mobile-swiper .swiper .swiper-slide-active .product-check {
+  transform: none !important;
+  opacity: 1 !important;
+}
+.mobile-swiper .swiper .swiper-slide-active .product-info {
+  margin: 0 !important;
+}
+.mobile-swiper .swiper .swiper-slide-active .product-tags {
+  opacity: 0.7 !important;
+}
+
+.desktop-swiper {
+  margin-bottom: 100px;
+  display: grid;
+  grid-template-columns: 1fr 55%;
+  min-height: 500px;
+  position: relative;
+  background-color: hsl(228deg, 53%, 23%);
+  background-image: radial-gradient(at 40% 20%, hsl(228deg, 55%, 21%) 0px, transparent 50%), radial-gradient(at 80% 0%, hsl(228deg, 58%, 12%) 0px, transparent 50%), radial-gradient(at 0% 50%, hsl(228deg, 61%, 19%) 0px, transparent 50%), radial-gradient(at 80% 50%, hsl(228deg, 58%, 12%) 0px, transparent 50%), radial-gradient(at 0% 100%, hsl(228deg, 58%, 12%) 0px, transparent 50%), radial-gradient(at 80% 100%, hsl(228deg, 63%, 19%) 0px, transparent 50%), radial-gradient(at 0% 0%, hsl(228deg, 63%, 23%) 0px, transparent 50%);
+}
+.desktop-swiper .featured-image img {
+  min-height: 550px;
+  object-fit: cover;
+  max-height: 550px;
+  min-width: 100%;
+}
+.desktop-swiper .featured-bio {
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  max-width: 700px;
+}
+.desktop-swiper .featured-bio .product-bio {
+  margin-bottom: 30px;
+}
+.desktop-swiper .featured-bio .images-buttons {
+  z-index: 99;
+  display: flex;
+  position: relative;
+  margin-bottom: 20px;
+}
+.desktop-swiper .featured-bio .images-buttons .progress-bkg {
+  height: 2px;
+  background-color: #fff;
+  opacity: 0.2;
+  position: absolute;
+  width: 90px;
+  left: 45px;
+  bottom: 15px;
+  border-radius: 2px;
+}
+.desktop-swiper .featured-bio .images-buttons .progress-line {
+  transition: 0.2s;
+  opacity: 1;
+  border-radius: 2px;
+  height: 2px;
+  background-color: #fff;
+  position: absolute;
+  width: 35px;
+  left: 45px;
+  bottom: 15px;
+}
+.desktop-swiper .featured-bio .images-buttons button {
+  color: white;
+}
+.desktop-swiper .featured-bio .images-buttons button svg {
+  width: 32px;
+}
+.desktop-swiper .featured-bio .images-buttons #image-prev {
+  transform: scaleX(-1);
+}
+.desktop-swiper .featured-bio .images-thumb {
+  overflow: hidden;
+  height: 130px;
+  max-width: 550px;
+  transition: 0.5s;
+  display: flex;
+  gap: 20px;
+}
+.desktop-swiper .featured-bio .images-thumb .single-image {
+  transition: 0.5s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.desktop-swiper .featured-bio .images-thumb .single-image img {
+  max-width: 170px;
+}
+.desktop-swiper .featured-bio .images-thumb-line {
+  max-width: 550px;
+  transition: 0.5s;
+  display: flex;
+  gap: 20px;
+  justify-content: space-around;
+}
+.desktop-swiper .featured-bio .images-thumb-line > div {
+  width: 170px;
+}
+.desktop-swiper .featured-bio .images-thumb-line > div span {
+  display: block;
+  margin-top: 10px;
+  position: relative;
+  background-color: white;
+  width: 15px;
+  height: 2px;
+  transition: 0.4s ease;
+}
+.desktop-swiper .featured-bio h3 {
+  font-size: 45px;
+  font-weight: 700;
+  color: white;
+  font-family: "Avenir", sans-serif;
+  line-height: 45px;
+  margin-bottom: 15px;
+}
+.desktop-swiper .featured-bio p {
+  color: rgba(255, 255, 255, 0.75);
 }
 
 /*# sourceMappingURL=webshop.css.map */

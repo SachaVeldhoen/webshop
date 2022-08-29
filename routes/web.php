@@ -18,6 +18,7 @@ use Illuminate\Support\Facades\Route;
 // producten
 Route::get('/producten', [\App\Http\Controllers\ProductController::class, 'allProducts'])
         ->name('products.all');
+
 Route::post('/producten', [\App\Http\Controllers\CartController::class, 'store'])
     ->name('cart.store');
 Route::get('/admin/upload-product', [ProductController::class,'uploadProduct']);
