@@ -4,20 +4,33 @@ namespace App\Http\Controllers;
 
 use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Http\Request;
+use Illuminate\Routing\Controller;
 
 class HomeController extends Controller
 {
-    // home page
-
-    public function index()
+    public function home()
     {
-        $cart_count = Cart::content()->count();
-        $cart_price = Cart::total();
-
-        return view('home', compact(array('cart_count', 'cart_price')));
+        return view('home');
     }
 
-    public function account() {
-        return view('account.dashboard');
+    public function contact()
+    {
+        return view('contact');
     }
+
+//    public function store(Request $request)
+//    {
+//        $request->validate([
+//            'name' => 'required',
+//            'email' => 'required|email',
+//            'phone' => 'required|digits:10|numeric',
+//            'subject' => 'required',
+//            'message' => 'required'
+//        ]);
+//
+//        Contact::create($request->all());
+//
+//        return redirect()->back()
+//            ->with(['success' => 'Thank you for contact us. we will contact you shortly.']);
+//    }
 }
